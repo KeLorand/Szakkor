@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D playerRB;
 
-    public BoxCollider2D playerCollider;
+    public static BoxCollider2D playerCollider;
     public BoxCollider2D floorCollider;
 
     [SerializeField] GameObject enemyObject;
@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     public int playerSpeed;
     public int jumpForce;
 
-    public bool canJump;
+    public static bool canJump;
 
     private float currentTime;
     public float fireRate = 0.1f;
@@ -49,6 +49,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+
+        
 
         currentTime += Time.deltaTime;
 
@@ -86,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
         {
             canJump = false;
         }
+        
 
         if (Input.GetKey("e") && canShoot)
         {

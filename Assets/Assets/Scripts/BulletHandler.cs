@@ -7,18 +7,23 @@ public class BulletHandler : MonoBehaviour
 
     public Rigidbody2D bulletRB;
     public int bulletSpeed;
-    public Rigidbody2D bulletCol;
+    public  BoxCollider2D bulletCol;
     
 
     void Awake()
     {
         bulletRB = this.gameObject.GetComponent<Rigidbody2D>();
-        bulletCol = this.gameObject.GetComponent<Rigidbody2D>();
+        bulletCol = this.gameObject.GetComponent<BoxCollider2D>();
     }
 
     
     void Update()
     {
+
+        if (Input.GetKey("space"))
+        {
+            bulletSpeed = 0;
+        }
 
         this.transform.Translate(bulletSpeed * Time.deltaTime, 0, 0);
 
@@ -30,6 +35,11 @@ public class BulletHandler : MonoBehaviour
                 Debug.Log(EnemyScript.health);
                 Destroy(this.gameObject);
             }
+        }
+
+        if (PlayerMovement.playerCollider.IsTouching(bulletCol))
+        {
+            PlayerMovement.canJump = true;
         }
         
     }
