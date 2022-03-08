@@ -6,7 +6,7 @@ public class BulletHandler : MonoBehaviour
 {
 
     public Rigidbody2D bulletRB;
-    public int bulletSpeed;
+    public int bulletSpeed = 10;
     public  BoxCollider2D bulletCol;
     
 
@@ -20,10 +20,24 @@ public class BulletHandler : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKey("space"))
+        if (bulletSpeed == 10)
         {
-            bulletSpeed = 0;
+            if (Input.GetKeyDown("space"))
+            {
+                bulletSpeed = 0;
+            }   
         }
+
+        if (bulletSpeed == 0)
+        {
+            if (Input.GetKeyUp("space"))
+            {
+                bulletSpeed = 10;
+            }
+        }
+
+        
+
 
         this.transform.Translate(bulletSpeed * Time.deltaTime, 0, 0);
 
