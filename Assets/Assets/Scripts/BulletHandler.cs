@@ -22,7 +22,7 @@ public class BulletHandler : MonoBehaviour
 
         if (bulletSpeed == 10)
         {
-            if (Input.GetKeyDown("h"))
+            if (Input.GetMouseButtonDown(0))
             {
                 bulletSpeed = 0;
             }   
@@ -30,7 +30,7 @@ public class BulletHandler : MonoBehaviour
 
         if (bulletSpeed == 0)
         {
-            if (Input.GetKeyUp("h"))
+            if (Input.GetMouseButtonUp(0))
             {
                 bulletSpeed = 10;
             }
