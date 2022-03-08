@@ -72,7 +72,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-
         if (Input.GetKey("a"))
         {
             playerRB.AddForce(new Vector2(-playerSpeed * Time.deltaTime, 0));

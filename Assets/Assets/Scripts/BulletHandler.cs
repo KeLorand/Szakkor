@@ -22,11 +22,15 @@ public class BulletHandler : MonoBehaviour
 
         this.transform.Translate(bulletSpeed * Time.deltaTime, 0, 0);
 
-        if (bulletCol.IsTouching(PlayerMovement.enemyCollider) && EnemyScript.health >= 20)
+        if (PlayerMovement.enemyCollider != null)
         {
-            EnemyScript.health = EnemyScript.health - 20;
-            Debug.Log(EnemyScript.health);
-            Destroy(this.gameObject);
+            if (bulletCol.IsTouching(PlayerMovement.enemyCollider) && EnemyScript.health >= 20)
+            {
+                EnemyScript.health = EnemyScript.health - 20;
+                Debug.Log(EnemyScript.health);
+                Destroy(this.gameObject);
+            }
         }
+        
     }
 }
