@@ -16,6 +16,9 @@ public class PlayerMovement : MonoBehaviour
     public BoxCollider2D playerCollider;
     public BoxCollider2D floorCollider;
 
+    [SerializeField] GameObject enemyObject;
+    public static BoxCollider2D enemyCollider;
+
     public int playerSpeed;
     public int jumpForce;
 
@@ -38,6 +41,9 @@ public class PlayerMovement : MonoBehaviour
 
         playerCollider = player.gameObject.GetComponent<BoxCollider2D>();
         floorCollider = floor.gameObject.GetComponent<BoxCollider2D>();
+
+        enemyObject = GameObject.FindGameObjectWithTag("Enemy");
+        enemyCollider = enemyObject.gameObject.GetComponent<BoxCollider2D>();
     }
 
 
