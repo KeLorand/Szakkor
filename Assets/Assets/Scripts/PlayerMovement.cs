@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        if (Input.GetKey("d") && moveRight == true)
+        if (Input.GetKey("d"))
         {
             playerRB.AddForce(new Vector2(playerSpeed * Time.deltaTime, 0));
         }
@@ -77,10 +77,9 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (Input.GetKey("a") && moveLeft == true)
+        if (Input.GetKey("a"))
         {
             playerRB.AddForce(new Vector2(-playerSpeed * Time.deltaTime, 0));
-            Debug.Log("a");
         }
 
         if (Input.GetKey("c"))
@@ -88,15 +87,6 @@ public class PlayerMovement : MonoBehaviour
             Instantiate(floor);
         }
 
-        if (playerCollider.IsTouching(floorCollider))
-        {
-            canJump = true;
-        }
-
-        else
-        {
-            canJump = false;
-        }
         
 
         if (Input.GetKey("e") && canShoot)
@@ -108,26 +98,18 @@ public class PlayerMovement : MonoBehaviour
 
         scoreText.text = score.ToString();
 
+        if (playerCollider.IsTouching(floorCollider))
+        {
+            canJump = true;
+        }
+
+        else
+        {
+            canJump = false;
+        }
+
     }
 
-    public void LeftDown()
-    {
-        moveLeft = true;
-    }
     
-    public void LeftUp()
-    {
-        moveLeft = false;
-    }
-
-    public void RightDown()
-    {
-        moveRight = true;
-    }
-
-    public void RightUp()
-    {
-        moveRight = false;
-    }
 
 }
