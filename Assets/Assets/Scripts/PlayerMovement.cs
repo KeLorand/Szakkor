@@ -87,7 +87,15 @@ public class PlayerMovement : MonoBehaviour
             Instantiate(floor);
         }
 
-        
+        if (moveLeft == true)
+        {
+            playerRB.AddForce(new Vector2(-playerSpeed * Time.deltaTime, 0));
+        }
+
+        if (moveRight == true)
+        {
+            playerRB.AddForce(new Vector2(playerSpeed * Time.deltaTime, 0));
+        }
 
         if (Input.GetKey("e") && canShoot)
         {
@@ -109,7 +117,25 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
-
     
+    public void LeftPDown()
+    {
+        moveLeft = true;
+    }
+
+    public void LeftPDUp()
+    {
+        moveLeft = false;
+    }
+
+    public void RightPDown()
+    {
+        moveRight = true;
+    }
+
+    public void RightPDUp()
+    {
+        moveRight = false;
+    }
 
 }
